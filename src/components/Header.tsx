@@ -1,4 +1,8 @@
-const Header = () => {
+import { useContext } from "react";
+import SearchContext from "../utils/searchContext";
+
+const Header = ({ setSearchItem }: { setSearchItem: string }) => {
+  const searchItem = useContext(SearchContext);
   return (
     <div className="flex justify-between mx-10">
       <div className="flex justify-between">
@@ -7,6 +11,11 @@ const Header = () => {
             className="border border-gray-400 pl-10 pr-2 py-3  rounded-lg w-full"
             type="text"
             placeholder="Search"
+            value={searchItem}
+            onChange={(e) => {
+              setSearchItem(e.target.value);
+              console.log(searchItem);
+            }}
           />
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <i

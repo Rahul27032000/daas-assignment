@@ -1,6 +1,8 @@
+import { useState } from "react";
 import SidebarOption from "./SidebarOption";
 
 const Sidebar = () => {
+  const [searchItem, setSearchItem] = useState("");
   return (
     <div className="mx-2 border-r-4 border-gray-400 h-screen w-96 bg-gray-200 fixed top-0 left-0 h-full">
       <div className="mx-3 h-full my-10">
@@ -9,6 +11,11 @@ const Sidebar = () => {
             className="border border-gray-400 pl-10 pr-2 py-2 rounded-lg w-full"
             type="text"
             placeholder="Search"
+            value={searchItem}
+            onChange={(e) => {
+              setSearchItem(e.target.value);
+              console.log(searchItem);
+            }}
           />
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <i
