@@ -1,7 +1,11 @@
 import { useContext } from "react";
 import SearchContext from "../utils/searchContext";
 
-const Header = ({ setSearchItem }: { setSearchItem: string }) => {
+interface Props {
+  setSearchItem: (searchItem: string) => void; // Define setSearchItem as a function that accepts a string parameter
+}
+
+const Header = ({ setSearchItem }: Props) => {
   const searchItem = useContext(SearchContext);
   return (
     <div className="flex justify-between mx-10">

@@ -2,9 +2,18 @@ import { useContext, useEffect, useState } from "react";
 import { PRODUCT_URI } from "../utils/constant";
 import SearchContext from "../utils/searchContext";
 
+interface Product {
+  id: number;
+  title: string;
+  description: string;
+  brand: string;
+  thumbnail: string;
+  price: number;
+}
+
 const ListContainer = () => {
-  const [productData, setProductData] = useState([]);
-  const [filteredProduct, setFilteredProduct] = useState([]);
+  const [productData, setProductData] = useState<Product[]>([]);
+  const [filteredProduct, setFilteredProduct] = useState<Product[]>([]);
   const searchItem = useContext(SearchContext);
 
   useEffect(() => {

@@ -9,8 +9,8 @@ const SidebarOption = ({
   text: string;
   icon2?: any;
 }) => {
-  const [showItem, setShowItem] = useState(false);
-  const [searchItem, setSearchItem] = useState("");
+  const [showItem, setShowItem] = useState<boolean>(false);
+
   return (
     <div>
       <div className="flex justify-between w-64  hover:cursor-pointer p-5 mt-2 text-lg font-bold">
