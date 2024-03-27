@@ -3,7 +3,7 @@ import ListContainer from "./ListContainer";
 
 const MainContainer = () => {
   return (
-    <div className="col-span-11 m-10">
+    <div className="flex-grow m-10 ml-96">
       <Header />
       <ListContainer />
     </div>

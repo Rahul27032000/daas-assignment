@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar";
 function App() {
   return (
     <>
-      <div className="grid grid-flow-col">
+      <div className="flex">
         <Sidebar />
         <MainContainer />
       </div>

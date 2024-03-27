@@ -2,16 +2,22 @@ import SidebarOption from "./SidebarOption";
 
 const Sidebar = () => {
   return (
-    <div className="col-span-1 mx-2 border-r-4 border-gray-400 h-screen">
+    <div className="mx-2 border-r-4 border-gray-400 h-screen w-96 bg-gray-200 fixed top-0 left-0 h-full">
       <div className="mx-3 h-full my-10">
-        <div>
-          <i className="fa-solid fa-magnifying-glass"></i>
+        <div className="relative">
           <input
-            className="border border-gray-400 p-2 rounded-lg"
+            className="border border-gray-400 pl-10 pr-2 py-2 rounded-lg w-full"
             type="text"
             placeholder="Search"
           />
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <i
+              className="fa-solid fa-magnifying-glass text-gray-400"
+              style={{ zIndex: "10" }}
+            ></i>
+          </div>
         </div>
+
         <SidebarOption
           text="Dashboard"
           icon={<i className="fa-solid fa-chart-simple "></i>}

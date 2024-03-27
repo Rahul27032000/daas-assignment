@@ -1,12 +1,20 @@
 const Header = () => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between mx-10">
       <div className="flex justify-between">
-        <input
-          className="border border-gray-400 rounded-lg px-4"
-          type="text"
-          placeholder="Something"
-        />
+        <div className="relative">
+          <input
+            className="border border-gray-400 pl-10 pr-2 py-3  rounded-lg w-full"
+            type="text"
+            placeholder="Search"
+          />
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <i
+              className="fa-solid fa-magnifying-glass text-gray-400"
+              style={{ zIndex: "10" }}
+            ></i>
+          </div>
+        </div>
         <button className="px-5 mx-7 py-2 bg-slate-100 rounded-lg border border-gray-400">
           Filters <i className="fa-solid fa-chevron-down"></i>
         </button>

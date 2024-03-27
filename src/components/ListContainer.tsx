@@ -1,7 +1,20 @@
+import { useEffect, useState } from "react";
+
 const ListContainer = () => {
-  const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+  const [productData, setProductData] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch("https://dummyjson.com/products");
+    const jsonData = await data.json();
+    console.log(jsonData);
+    setProductData(jsonData.products);
+  };
+
   return (
-    <div className="border border-gray-400 my-10 ">
+    <div className="border border-gray-400 my-10 ml-10  rounded-lg">
       <div className="flex flex-wrap ">
         <div className="w-full max-w-full px-3 mb-6  mx-auto">
           <div className="relative flex-[1_auto] flex flex-col break-words min-w-0 bg-clip-border rounded-[.95rem] bg-white m-5">
@@ -37,13 +50,16 @@ const ListContainer = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {data.map(() => (
-                        <tr className="border-b border-dashed last:border-b-0">
+                      {productData.map((data) => (
+                        <tr
+                          key={data.id}
+                          className="border-b border-dashed last:border-b-0"
+                        >
                           <td className="p-3 pl-0">
                             <div className="flex items-center">
                               <div className="relative inline-block shrink-0 rounded-2xl me-3">
                                 <img
-                                  src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
+                                  src={data.thumbnail}
                                   className="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl"
                                   alt=""
                                 />
@@ -53,7 +69,7 @@ const ListContainer = () => {
                                   href="javascript:void(0)"
                                   className="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary"
                                 >
-                                  Social Media API
+                                  {data.title}
                                 </a>
                               </div>
                             </div>
